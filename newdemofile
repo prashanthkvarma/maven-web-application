@@ -11,13 +11,12 @@ pipeline{
             steps{
                 git branch: 'development', credentialsId: '155a7887-988b-4fb1-b5cf-47f5c69506d3', url: 'https://github.com/prashanthkvarma/maven-web-application'
             }
-            }
-    }
-    stages{
-        stage('Maven'){
+        }
+    
+       stage('Maven'){
             steps{
                 sh "mvn clean package"
             }
         }
-    }
+    }//stages
 } //closing pipeline
