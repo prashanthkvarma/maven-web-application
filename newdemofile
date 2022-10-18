@@ -18,12 +18,12 @@ pipeline{
                 sh "mvn  package"
             }
         }
- /*       
+      
         stage('ECR'){
             steps{
                 sh "aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 282579452508.dkr.ecr.ap-south-1.amazonaws.com"
             }
         }
-  */
+  
     }//stages
 } //closing pipeline
