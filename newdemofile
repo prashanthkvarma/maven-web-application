@@ -4,7 +4,9 @@ pipeline{
 
     stages{
         stage('github'){
-            git branch: 'development', credentialsId: '155a7887-988b-4fb1-b5cf-47f5c69506d3', url: 'https://github.com/prashanthkvarma/maven-web-application'
+            steps{
+                git branch: 'development', credentialsId: '155a7887-988b-4fb1-b5cf-47f5c69506d3', url: 'https://github.com/prashanthkvarma/maven-web-application'
+            }
             }
     }
 } //closing pipeline
