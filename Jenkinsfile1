@@ -19,6 +19,7 @@ buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '5', 
 
 parameters {
   choice choices: ['dev', 'preqa', 'qa', 'master'], description: 'Please select your env wisely', name: 'BranchName'
+  string defaultValue: 'BFF', description: 'Give the project name', name: 'Prashanth'
 }
 
 stages{
