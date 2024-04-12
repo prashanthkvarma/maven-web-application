@@ -22,12 +22,10 @@ parameters {
 }
 
 stages{
-
   stage('CheckOutCode'){
     steps{
     git branch: "${params.BranchName}", credentialsId: 'github', url: 'https://github.com/prashanthkvarma/maven-web-application.git'
 	
 	}
   }
-  
 }
