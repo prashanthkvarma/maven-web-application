@@ -6,7 +6,20 @@ tools{
 maven 'maven3.8.2'
 
 }
-
+triggers {
+        genericTrigger {
+            genericVariables {
+                genericVariable {
+                    key("${github}")
+                    value("${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}")
+                }
+            }
+            causeString('Triggered by webhook')
+            printContributedVariables(true)
+            printPostContent(true)
+            regexpFilterText('some regex pattern')
+        }
+    }
 
 // triggers{
 // pollSCM('* * * * *')
