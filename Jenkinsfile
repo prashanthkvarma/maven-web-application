@@ -16,7 +16,7 @@ buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '5', 
   stages{
     stage('Checkout'){
       steps{
-         git branch: 'master', credentialsId: 'github_creds', url: 'https://github.com/prashanthkvarma/maven-web-application.git'
+         git branch: 'master', credentialsId: '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', url: 'https://github.com/prashanthkvarma/maven-web-application.git'
       }
     }
 
