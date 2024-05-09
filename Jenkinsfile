@@ -15,7 +15,7 @@ pollSCM('* * * * *')
 
 options{
 timestamps()
-buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '5', daysToKeepStr: '', numToKeepStr: '5'))
+buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '2', daysToKeepStr: '', numToKeepStr: '2'))
 }
 
   stages{
@@ -27,8 +27,16 @@ buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '5', 
 
     stage('build_stage'){
       steps{
+        sh "mvn test"
+      }
+    }
+
+    stage('build_stage'){
+      steps{
         sh "mvn clean package"
       }
     }
+
+
   } // stages closing
 } //pipeline closing
