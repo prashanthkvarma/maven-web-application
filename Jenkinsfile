@@ -7,7 +7,7 @@ pipeline {
   stages{
     stage('Checkout'){
       steps{
-         git branch: 'maybranch', credentialsId: 'github_creds', url: 'https://github.com/prashanthkvarma/maven-web-application.git'
+         git branch: 'master', credentialsId: 'github_creds', url: 'https://github.com/prashanthkvarma/maven-web-application.git'
       }
     }
   }
