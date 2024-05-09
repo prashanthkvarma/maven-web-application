@@ -5,7 +5,7 @@ pipeline {
   }
 
 tools{
-maven 'Maven'
+maven 'maven3.8.2'
 
 }
 
