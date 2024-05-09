@@ -1,46 +1,14 @@
-pipeline{
-
-agent any
-
-tools{
-maven 'maven3.8.2'
-
-}
-// triggers {
-//         genericTrigger {
-//             genericVariables {
-//                 genericVariable {
-//                     key("${github}")
-//                     value("${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}")
-//                 }
-//             }
-//             causeString('Triggered by webhook')
-//             printContributedVariables(true)
-//             printPostContent(true)
-//             regexpFilterText('some regex pattern')
-//         }
-//     }
-
-// triggers{
-// pollSCM('* * * * *')
-// }
-
-options{
-timestamps()
-buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '5', daysToKeepStr: '', numToKeepStr: '5'))
-}
-
-parameters {
-  choice choices: ['dev', 'preqa', 'qa', 'master'], description: 'Please select your env wisely', name: 'BranchName'
-  string defaultValue: 'BFF', description: 'Give the project name', name: 'Prashanth'
-}
-
-stages{
-  stage('CheckOutCode'){
-    steps{
-    git branch: "${params.BranchName}", credentialsId: 'github', url: 'https://github.com/prashanthkvarma/maven-web-application.git'
-	
-	}
+pipeline {
+//  agent any 
+  agent {
+    label 'slave'
   }
-}
+
+  stages{
+    stage('Checkout'){
+      steps{
+         git branch: 'maybranch', credentialsId: 'github_creds', url: 'https://github.com/prashanthkvarma/maven-web-application.git'
+      }
+    }
+  }
 }
