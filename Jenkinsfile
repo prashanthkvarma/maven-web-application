@@ -20,10 +20,10 @@ buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '5', 
       }
     }
 
-    // stage('build_stage'){
-    //   steps{
-    //     sh
-    //   }
-    // }
+    stage('build_stage'){
+      steps{
+        sh "mvn clean package"
+      }
+    }
   } // stages closing
 } //pipeline closing
