@@ -39,5 +39,5 @@ buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '2', 
 
 
   } // stages closing
-  }
+
 } //pipeline closing
