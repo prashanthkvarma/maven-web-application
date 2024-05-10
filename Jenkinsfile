@@ -9,10 +9,6 @@ maven 'maven3.9.6'
 
 }
 
-triggers{
-pollSCM('* * * * *')
-}
-
 parameters {
   choice choices: ['master', 'test', 'feature/*' ], description: 'Select required branch name', name: 'BranchName'
 }
