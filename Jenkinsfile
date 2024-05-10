@@ -14,9 +14,12 @@ pollSCM('* * * * *')
 }
 
 parameters {
-  choice choices: ['master', 'test' ], description: 'Select required branch name', name: 'BranchName'
+  choice choices: ['master' ], description: 'Select required branch name', name: 'BranchName'
 }
 
+parameters {
+  choice choices: ['test' ], description: 'Select required branch name', name: 'BranchNameTest'
+}
 
 options{
 timestamps()
@@ -40,4 +43,13 @@ buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '2', 
 
 
   } // stages closing
+
+  stages{
+    stage('Checkout_test'){
+      steps{
+         git branch: "${params.BranchNameTest}", credentialsId: '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', url: 'https://github.com/prashanthkvarma/maven-web-application.git'
+
+      }
+    }
+  }
 } //pipeline closing
