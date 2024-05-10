@@ -36,6 +36,8 @@ buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '2', 
     //   }
     // }
 
+
+
     stage('build_stage'){
       steps{
         sh "mvn clean package"
