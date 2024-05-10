@@ -14,7 +14,7 @@ pollSCM('* * * * *')
 }
 
 parameters {
-  choice choices: ['master', 'Dev', 'PREQA', 'QA'], description: 'Select required branch name', name: 'BranchName'
+  choice choices: ['master', 'test', 'uat', 'maybranch'], description: 'Select required branch name', name: 'BranchName'
 }
 
 
