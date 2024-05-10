@@ -30,13 +30,6 @@ buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '2', 
       }
     }
 
-    // stage('build_stage'){
-    //   steps{
-    //     sh "mvn test"
-    //   }
-    // }
-
-
 
     stage('build_stage'){
       steps{
