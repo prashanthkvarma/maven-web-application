@@ -13,6 +13,11 @@ triggers{
 pollSCM('* * * * *')
 }
 
+parameters {
+  choice choices: ['master', 'Dev', 'PREQA', 'QA'], description: 'Select required branch name', name: 'BranchName'
+}
+
+
 options{
 timestamps()
 buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '2', daysToKeepStr: '', numToKeepStr: '2'))
@@ -21,7 +26,7 @@ buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '2', 
   stages{
     stage('Checkout'){
       steps{
-         git branch: 'master', credentialsId: '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', url: 'https://github.com/prashanthkvarma/maven-web-application.git'
+         git branch: "{$params.BranchName}", credentialsId: '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', url: 'https://github.com/prashanthkvarma/maven-web-application.git'
       }
     }
 
