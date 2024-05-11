@@ -21,7 +21,7 @@ options{
 timestamps()
 buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '2', daysToKeepStr: '', numToKeepStr: '2'))
 }
-  if (env.BRANCH_NAME == test] {
+  if (env.BRANCH_NAME == test) {
 
   stages{
     stage('Checkout'){
