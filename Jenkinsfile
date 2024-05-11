@@ -21,8 +21,9 @@ options{
 timestamps()
 buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '2', daysToKeepStr: '', numToKeepStr: '2'))
 }
-  if (env.BRANCH_NAME == test] {
 
+def BranchName = env.BRANCH_NAME
+if (BranchName == 'test') {
   stages{
     stage('Checkout'){
       steps{
@@ -36,9 +37,5 @@ buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '2', 
       }
     }
   } // stages closing
-
-
-
-  } // closing if condition
-
+} //if condition closing
 } //pipeline closing
