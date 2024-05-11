@@ -22,20 +22,22 @@ timestamps()
 buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '2', daysToKeepStr: '', numToKeepStr: '2'))
 }
 
-def BranchName = env.BRANCH_NAME
-if (BranchName == 'test') {
+
   stages{
     stage('Checkout'){
       steps{
-         git branch: "${params.BranchName}", credentialsId: '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', url: 'https://github.com/prashanthkvarma/maven-web-application.git'
+        script {
+          def BranchName = env.BRANCH_NAME
+          if (BranchName == 'test') {
+          git branch: "${params.BranchName}", credentialsId: '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', url: 'https://github.com/prashanthkvarma/maven-web-application.git'
       }
     }
-  
+      }
+    }
     stage('build_stage'){
       steps{
         sh "mvn clean package"
       }
     }
   } // stages closing
-} //if condition closing
 } //pipeline closing
