@@ -9,11 +9,10 @@ maven 'maven3.9.6'
 
 }
   
-parameters {
-  choice choices: ['master', 'test', 'feature/*' ], description: 'Select required branch name', name: 'BranchName'
+triggers{
+pollSCM('* * * * *')
 }
-
-
+  
 options{
 timestamps()
 buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '2', daysToKeepStr: '', numToKeepStr: '2'))
